@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leekinyou.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="数据结构期末复习1、基本概念和术语数据：数据是对客观事物的符号表示，在计算机科学中指所有能输入到计算机中并且被计算机程序处理的符号的总称。 数据元素：数据元素是数据的基本单位。 数据对象：是性质相同的数据元素的集合。 数据结构：是相互之间存在一种或者多种特定关系的数据元素的集合。 结构：集合，线性结构，树形结构，图状结构，网状结构。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构期末复习">
+<meta property="og:url" content="https://leekinyou.github.io/2022/08/31/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:site_name" content="KinyouLee的个人博客">
+<meta property="og:description" content="数据结构期末复习1、基本概念和术语数据：数据是对客观事物的符号表示，在计算机科学中指所有能输入到计算机中并且被计算机程序处理的符号的总称。 数据元素：数据元素是数据的基本单位。 数据对象：是性质相同的数据元素的集合。 数据结构：是相互之间存在一种或者多种特定关系的数据元素的集合。 结构：集合，线性结构，树形结构，图状结构，网状结构。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210222102217926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JlYWxfRm9vbF8=,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226170339905.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JlYWxfRm9vbF8=,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210301095908432.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/202103011006555.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JlYWxfRm9vbF8=,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210522134327765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81Njc3MjkwNA==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2022-08-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-01T12:04:33.351Z">
+<meta property="article:author" content="Kinyou">
+<meta property="article:tag" content="数据结构基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210222102217926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JlYWxfRm9vbF8=,size_16,color_FFFFFF,t_70#pic_center">
+
+
+<link rel="canonical" href="https://leekinyou.github.io/2022/08/31/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leekinyou.github.io/2022/08/31/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/","path":"2022/08/31/数据结构/","title":"数据结构期末复习"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数据结构期末复习 | KinyouLee的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">KinyouLee的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Enjoy my coding life</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">数据结构期末复习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%9C%AF%E8%AF%AD"><span class="nav-number">1.1.</span> <span class="nav-text">1、基本概念和术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E7%AE%97%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">2、算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E5%90%84%E7%AB%A0%E8%8A%82%E5%86%85%E5%AE%B9"><span class="nav-number">1.3.</span> <span class="nav-text">3、各章节内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-number">1.3.1.</span> <span class="nav-text">线性表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%9F%E5%88%97%E5%92%8C%E6%A0%88"><span class="nav-number">1.3.2.</span> <span class="nav-text">队列和栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%91"><span class="nav-number">1.3.3.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.3.3.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%91%E5%92%8C%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">树和二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">哈夫曼树</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE"><span class="nav-number">1.3.4.</span> <span class="nav-text">图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">图的相关概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">图的存储结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-1"><span class="nav-number">1.3.4.3.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE"><span class="nav-number">1.3.5.</span> <span class="nav-text">查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E6%9F%A5%E6%89%BE"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">直接查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E6%9F%A5%E6%89%BE"><span class="nav-number">1.3.5.3.</span> <span class="nav-text">动态查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="nav-number">1.3.5.4.</span> <span class="nav-text">哈希表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.6.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.6.1.</span> <span class="nav-text">1.插入排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.6.2.</span> <span class="nav-text">2.希尔排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.6.3.</span> <span class="nav-text">3.选择排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.6.4.</span> <span class="nav-text">4.冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.6.5.</span> <span class="nav-text">5.堆排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.6.6.</span> <span class="nav-text">6.快速排序</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kinyou"
+      src="/images/head.png">
+  <p class="site-author-name" itemprop="name">Kinyou</p>
+  <div class="site-description" itemprop="description">a university student majoring in CS, CQUPT</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LeeKinyou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LeeKinyou" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1412901165@qq.com" title="E-Mail → mailto:1412901165@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+
+      <!--网易云音乐-->
+      <div id="music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1301884692&auto=0&height=66">
+        </iframe>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部" class="back-to-top motion-element" style="background-color:rgba(255,0,0,0)">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leekinyou.github.io/2022/08/31/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="Kinyou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KinyouLee的个人博客">
+      <meta itemprop="description" content="a university student majoring in CS, CQUPT">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="数据结构期末复习 | KinyouLee的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构期末复习
+        </h1>
+
+        <div class="post-meta-container">
+          
+
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-31 00:00:00" itemprop="dateCreated datePublished" datetime="2022-08-31T00:00:00+08:00">2022-08-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-01 20:04:33" itemprop="dateModified" datetime="2022-09-01T20:04:33+08:00">2022-09-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>12k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="数据结构期末复习"><a href="#数据结构期末复习" class="headerlink" title="数据结构期末复习"></a>数据结构期末复习</h1><h2 id="1、基本概念和术语"><a href="#1、基本概念和术语" class="headerlink" title="1、基本概念和术语"></a>1、基本概念和术语</h2><p>数据：数据是对客观事物的符号表示，在计算机科学中指所有能输入到计算机中并且被计算机程序处理的符号的总称。</p>
+<p>数据元素：数据元素是数据的基本单位。</p>
+<p>数据对象：是性质相同的数据元素的集合。</p>
+<p>数据结构：是相互之间存在一种或者多种特定关系的数据元素的集合。</p>
+<p>结构：集合，线性结构，树形结构，图状结构，网状结构。</p>
+<span id="more"></span>
+
+<h2 id="2、算法"><a href="#2、算法" class="headerlink" title="2、算法"></a>2、算法</h2><p><strong>特性</strong>：<br>有穷性，确定性，可行性，输入和输出。<br><strong>要求</strong>：<br>正确性，可读性，健壮性，效率与低存储量需求。</p>
+<p>如何动态分配空间：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">L=(<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="number">100</span>*<span class="built_in">sizeof</span>(<span class="type">int</span>)); <span class="comment">//申请100个int型的数据，返回一个int型的指针赋给L。</span></span><br><span class="line">L=(<span class="type">int</span> *)<span class="built_in">realloc</span>(L,<span class="number">100</span>*<span class="built_in">sizeof</span>(<span class="type">int</span>));<span class="comment">//重新分配100个内存给L，可能之前分配的不够</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3、各章节内容"><a href="#3、各章节内容" class="headerlink" title="3、各章节内容"></a>3、各章节内容</h2><h3 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h3><blockquote>
+<p>线性表主要分为顺序表（SqList),单链表（LinkList)，双链表（DuList)，循环链表。</p>
+</blockquote>
+<p>这个定义是顺序表的定义。主要是有三个变量，分别用来存放数据值，数据个数，表长。顺序表，顾名思义，就是表里面数据的各个元素的位置关系是相邻关系，一个紧挨一个，取元素可以直接通过下标进行定位。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">Sqlist</span>&#123;</span><br><span class="line">	ElemType *elem;  <span class="comment">//数据值，是一个数组元素的首地址 </span></span><br><span class="line">	<span class="type">int</span> length;  <span class="comment">//顺序表目前存储的元素的个数</span></span><br><span class="line">	<span class="type">int</span> listsize; <span class="comment">//顺序表的长度，也就是该顺序表可以最多存放几个元素</span></span><br><span class="line">&#125;SqList;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这个是单链表的定义，对于链式存储的结构，不同于顺序表，链式结构的最小单元是结点，并不要求结点之间是相邻的，注意，这个相邻，指的是内存的相邻，顺序表的相邻指的是内存的相邻，因此可以用下标进行定义，但是单链表不是这样的，单链表的内存不一定是相邻的，所以要定位某一个具体的结点，就只能从头结点进行遍历。这里，单链表又分为有头结点和没有头结点的，这个看题目具体的要求。我们查找某一个元素的时候，是通过从最开始的那个结点进行遍历，然后再执行相关的操作。</p>
+<p>循环链表就不再进行详细解释了，顾名思义，就是我们普通链表的最后一个结点的next是指向NULL的，而循环链表的最后一个结点指向的是链表的头节点。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LNode</span>&#123;</span><br><span class="line">	ElemType data;  <span class="comment">//数据元素</span></span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">LNode</span> *next;   <span class="comment">//该结点的下一个结点，也叫结构指针</span></span><br><span class="line">&#125;LNode;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">DuList</span>&#123;</span><br><span class="line">	ElemType data;</span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">DuList</span> *next;   <span class="comment">//前驱结点</span></span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">DuList</span> *prior;  <span class="comment">//后继结点</span></span><br><span class="line">&#125;DuList;</span><br></pre></td></tr></table></figure>
+
+<p>双向链表，是从普通链表扩展出来的一种链表，就是我们链表的每一个结点，不仅只有指向该节点后面的结点指针，还有就是指向该结点前一个结点的前驱指针。对于单链表，我们如果想删除某一个结点的话，那么我们后面的结点就要纷纷往前移动一个单位。但是，如果我们要执行很多个操作的时候，也就是我们要进行移动指针的操作是很多的，对于数据量很庞大的链表，这是不可取的，所以我们就想一个结构，可以是移动的操作尽可能地少，并且保持链表的结点的相对位置不变。所以，我们就想到了双链表结构，我们对于删除操作的时候，我们只需要找到要删除的结点。然后让这个结点的前驱结点的后继指向这个结点的车后继。让这个结点的后继结点指向这个结点的前驱结点。这样说可能很绕。我给出一个图来吧。</p>
+<p>大概的结构就是这样，代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p-&gt;prior-&gt;next=p-&gt;next;</span><br><span class="line">p-&gt;next-&gt;prior=p-&gt;prior;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>其实，对于单链表也不是不可以进行这样的删除操作，我们可以用一个单独的结点记录遍历的某一个结点的前驱结点。然后，一旦找到该结点，我们就将它的前一个结点的后继结点修改为该结点的后继结点。这样说感觉很绕，一开始学就这样，理解不了的话自己在纸上多模拟即可。</p>
+<h3 id="队列和栈"><a href="#队列和栈" class="headerlink" title="队列和栈"></a>队列和栈</h3><p>栈，栈是一种十分常见的一种数据结构，它的规律是先进后出的一种结构，这个结构，可以比喻为一个箱子，我们可以将一本一本书放进这个箱子，但是我们拿出来的时候，我们只能拿最上面的那一本书。<br>顺序栈</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顺序栈的结构定义</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">	SElemType *base;  <span class="comment">//栈底 </span></span><br><span class="line">	SElemType data; <span class="comment">//数据值</span></span><br><span class="line">	SElemType *top;  <span class="comment">//栈顶 </span></span><br><span class="line">	<span class="type">int</span> stacksize;  <span class="comment">//栈大小 </span></span><br><span class="line">&#125;SqStack;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>顺序栈有栈顶和栈底，当我们有一个新的元素插入栈里面的时候，top指针++，当有元素从栈里面清除的时候，我们的base++。栈的应用主要是后面的二叉树的遍历和图的遍历的相关的操作。<br>然后就是队列，队列是一种先进先出的结构，就像我们日常生活中排队一样，先来的，优先级肯定是更高的，所以对于一些操作它也是要优先进行的。</p>
+<p>队列</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//链队列的结构定义</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">QNode</span>&#123;</span><br><span class="line">	QElemType data;</span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">QNode</span> *next;</span><br><span class="line">&#125;QNode,*QueuePtr;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">	QueuePtr *next;</span><br><span class="line">	QueuePtr *rear;</span><br><span class="line">&#125;LinkQueue;</span><br></pre></td></tr></table></figure>
+
+<p>循环队列：和顺序栈类似的是，对于循环队列，我们一样有两个指针front和rear，这两个指针一开始都指向0的，当我们往队列里面添加元素的时候，rear指针自增1，当从链表里面删除元素的时候，我们的front r指针就自增1，这样下来，我们就会遇到一个问题，我们怎么判断此时队列里面是否满的情况，因为在队列满的时候，我们是不能进行入队的操作的。显然， 我们不能用front和rear相等的条件进行判断了。解决这个问题，我们主要有两种方法：<br>1、我们空出一个空间不进行任何使用，当我们的对位指针的下一个位置是队首指针的时候，我们此时的队列就是满的情况了。<br>2、我们新增一个tag标志位，当我们的rear自增1后达到了front的位置时，我们就可以判断此时的队列是满的情况。当我们的rear自增1达到了front的时候，我们的tag标志位就记为1，说明此时队列是满的情况；反之，当我们的front+1达到了tag的时候，我们的tag的标志就记为0。这样下来，我们入队操作的时候，可以先查看tag位的数值情况，然后就可以判断操作是否合法了。<br>对于无法判断队列的长度的情况，我们推荐使用链队列实现动态处理。</p>
+<h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3><h4 id=""><a href="#" class="headerlink" title=""></a><img src="https://img-blog.csdnimg.cn/20210222102217926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JlYWxfRm9vbF8=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></h4><h4 id="树和二叉树"><a href="#树和二叉树" class="headerlink" title="树和二叉树"></a>树和二叉树</h4><p>树是数据结构中十分重要的一个模块，树是后面学的图的一种特殊的形式。树的一些基本的概念我就不仔细介绍了。我就置介绍一些二叉树的性质。</p>
+<p><strong>性质1 在二叉树的第i层上至多有2^(i-1)个结点，每一层结点的个数依次为1,2,4,…</strong><br><strong>性质2 深度为k的二叉树至多有2^k-1个结点，对于一个完全二叉树，前i层的结点的个数依次为1,3,7,…</strong><br><strong>性质3 对任何一棵二叉树T，如果其终端的结点个数为n0,度为2的结点的个数为n2，则n0=n2+1.</strong></p>
+<blockquote>
+<p>假设n1为度为1的结点的个数，则图中结点的总的个数为n=n1+n0+n2.对于一棵树，</p>
+<p>每一条分支出来对应于一个结点，当然，根节点不是由某一个分支出来的，结果为n=n1+2n2+1,</p>
+<p>###两个方程联立可以得到n0=n2+1。</p>
+</blockquote>
+<p><strong>性质4 具有n个结点的完全二叉树的深度为log2n（向下取整)+1.</strong><br>二叉树的存储结构有顺序存储和链式存储两种结构，个人倾向于后一种，灵活性更高，也更加直观。</p>
+<p><strong>二叉树的遍历</strong><br>先序遍历， 根节点-&gt;左子树-&gt;右子树<br>中序遍历，左子树-&gt;根节点-&gt;右子树<br>后序遍历，左子树-&gt;右子树-&gt;根节点<br>层序遍历，第一层-&gt;第二层-&gt;第三层<br>我们可以发现，其实这个先后中，其实是对根节点而言的。所以可以凭借这个进行记忆。<br>但是，这里有一个用栈模拟的中序遍历还是比较值得记忆的，在一些企业的招聘面试也经常被问及。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">InOrderTraverse</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">InitStack</span>(S);<span class="built_in">Push</span>(S,T);</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">StackEmpty</span>(S)) &#123;</span><br><span class="line">		<span class="keyword">while</span>(<span class="built_in">Gettop</span>(S)&amp;&amp;p) <span class="built_in">Push</span>(S,p-&gt;lchild);  <span class="comment">//向左走到尽头 </span></span><br><span class="line">		<span class="built_in">Pop</span>(S,p); <span class="comment">//空指针退栈 </span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">StackEmpty</span>(S))&#123;</span><br><span class="line">			<span class="built_in">Pop</span>(S,p); <span class="built_in">Visit</span>(p-&gt;data);  <span class="comment">//访问这个结点的数据 </span></span><br><span class="line">			<span class="built_in">Push</span>(S,p-&gt;rchild);  <span class="comment">//将右结点入栈 </span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h4><p>哈夫曼树也叫做最优二叉树，构造一棵最优二叉树的方法是每次选取集合里面最小的两个数字合并成一个新的结点，最终就可以构造出一棵最优二叉树了。在算法竞赛里面，可以使用优先队列来进行处理，产生一棵最优二叉树。</p>
+<p>图<br>图有几个概念还是比较重要的，比如什么是强连通分量，什么是强连通图等等。<br>图，可以说是数据结构最最重要的一个模块。但是我感觉学校老师在有限的时间里面很难讲清楚这个模块，所以，想学好的建议自己去刷题提升。<br>图的存储<br>我们知道图的存储主要有四种结构，邻接矩阵，邻接表，十字链表和邻接多重表这四种结构。<br>图的遍历<br>图的遍历主要深度优先遍历和广度优先遍历两种方式，深度优先遍历类似于我们对二叉树的线序遍历，广度优先遍历类似于我们学习的层序遍历。这里广度优先遍历可以用一个队列来进行模拟操作。<br>至于一些最小生成树，拓扑排序，最短路径算法，个人觉得考试应该不会考这些，主要是难度有点大。</p>
+<p>查找<br>概念：<br>查找表是由同一类的数据元素构成的集合。<br>对表进行不更改的操作叫做静态查找，而加入要修改元素，位置，信息等的操作叫做动态查找。<br>关键字是数据元素中某一个数组项的值。<br>至于一些查找方法就不再介绍了，这里主要介绍一个概念，叫做平均查找长度。<br>平均查找长度：为确定记录在查找表中的位置，需和给定值进行比较的关键字个数的期望值称为查找算法在查找成功是的平均查找长度。</p>
+<h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><p><img src="https://img-blog.csdnimg.cn/20210226170339905.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JlYWxfRm9vbF8=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h4 id="图的相关概念"><a href="#图的相关概念" class="headerlink" title="图的相关概念"></a>图的相关概念</h4><p><strong>1、有向图</strong><br>若E是有向边(也称弧)的有限集合时，则图G为有向图。弧是顶点的有序对，记为&lt;v, w&gt;，其中v,w是顶点，v称为弧尾，w称为弧头，&lt;v,w&gt;称为从顶点v到顶点w的弧，也称v邻接到w，或w邻接自v。</p>
+<p><strong>2、无向图</strong><br>若E是无向边(简称边)的有限集合时，则图G为无向图。边是顶点的无序对，记为(v, w)或(w,v),因为(v,w)=(w,v), 其中v,w是顶点。可以说顶点w和顶点v互为邻接点。边(v, w)依附于顶点w和v，或者说边(v, w)和顶点v, w相关联。</p>
+<p>3、简单图<br>一个图G 若满足:①不存在重复边;②不存在顶点到自身的边，则称图G 为简单图。</p>
+<p>4、多重图<br>若图G 中某两个结点之间的边数多于一条，又允许顶点通过同一条边和自己关联，则G 为多重图。多重图的定义和简单图是相对的。</p>
+<p><strong>5、完全图（也称简单完全图）</strong><br>对于无向图，∣ E ∣ 的取值范围是0 到n ( n − 1 ) / 2 ，有n ( n − 1 ) / 2 条边的无向图称为完全图，在完全图中任意两个顶点之间都存在边。对于有向图，∣ E ∣ 的取值范围是0 到n ( n − 1 ) ，有n ( n − 1 ) 条弧的有向图称为有向完全图，在有向完全图中任意两个顶点之间都存在方向相反的两条弧。</p>
+<p>6、子图<br>易知</p>
+<p>注意:并非V和E的任何子集都能构成G的子图，因为这样的子集可能不是图，即E的子集中的某些边关联的顶点可能不在这个V的子集中。</p>
+<p><strong>7、连通、连通图和连通分量</strong><br>在无向图中，若从顶点v 到顶点w 有路径存在，则称v 和w 是连通的。若图G 中任意两个顶点都是连通的，则称图G 为连通图，否则称为非连通图。无向图中的极大连通子图称为连通分量。若一个图有n 个顶点，并且边数小于n − 1，则此图必是非连通图。</p>
+<blockquote>
+<p>注意:弄清连通、连通图、连通分量的概念非常重要。首先要区分极大连通子图和极小连通子图，极大连通子图是无向图的连通分量，极大即要求该连通子图包含其所有的边;极小连通子图是既要保持图连通又要使得边数最少的子图。</p>
+</blockquote>
+<p><strong>8、强连通图、强连通分量</strong><br>在有向图中，若从顶点v 到顶点w 和从顶点w 到项点v 之间都有路径,则称这两个顶点是强连通的。若图中任何一对顶点都是强连通的，则称此图为强连通图。有向图中的极大强连通子图称为有向图的强连通分量。</p>
+<blockquote>
+<p>注意:强连通图、强连通分量只是针对有向图而言的。一般在无向图中讨论连通性，在有向图中考虑强连通性。</p>
+</blockquote>
+<p>9、生成树、生成森林<br>连通图的生成树是包含图中全部顶点的一个极小连通子图。若图中顶点数为n ,则它的生成树含有n − 1 条边。对生成树而言，若砍去它的一条边，则会变成非连通图，若加上一条边则会形成一个回路。在非连通图中，连通分量的生成树构成了非连通图的生成森林。</p>
+<blockquote>
+<p>注意:包含无向图中全部顶点的极小连通子图，只有生成树满足条件，因为砍去生成树的任一条边，图将不再连通。</p>
+</blockquote>
+<p><strong>10、顶点的度、入度和出度</strong></p>
+<p>度：点相连边数</p>
+<p>入度：指向该点的边数</p>
+<p>出度：从该点射出的边数</p>
+<p>有向图的全部顶点的入度之和与出度之和相等，并且等于边数。这是因为每条有向边都有一个起点和终点。</p>
+<p>11、边的权和网<br>在一个图中，每条边都可以标上具有某种含义的数值，该数值称为该边的权值。这种边上带有权值的图称为带权图，也称网。</p>
+<p>12、稠密图、稀疏图<br>边数很少的图称为稀疏图，反之称为稠密图。稀疏和稠密本身是模糊的概念，稀疏图和稠密图常常是相对而言的。一般当图G满足∣ E ∣ &lt; ∣ V ∣ 时，可以将G 视为稀疏图。</p>
+<p>13、路径、路径长度和回路<br>懒得解释了，懂得都懂</p>
+<p>14、 简单路径、简单回路<br>在路径序列中，顶点不重复出现的路径称为简单路径。除第一个顶点和最后一个顶点外，其余顶点不重复出现的回路称为简单回路。</p>
+<p>15、距离<br>从顶点u 出发到顶点v 的最短路径若存在，则此路径的长度称为从u 到v 的距离。若从u 到v 根本不存在路径，则记该距离为无穷( ∞ ) 。</p>
+<p>16、有向树<br>一个顶点的入度为0、其余顶点的入度均为1的有向图，称为有向树。</p>
+<h4 id="图的存储结构"><a href="#图的存储结构" class="headerlink" title="图的存储结构"></a>图的存储结构</h4><p>一、邻接矩阵<br>图的邻接矩阵(Adjacency Matrix) 存储方式是用两个数组来表示图。一个一维数组存储图中顶点信息，一个二维数组(称为邻接矩阵)存储图中的边或弧的信息。<br>设图G 有n 个顶点，则邻接矩阵A AA是一个n ∗ n 的方阵，定义为:</p>
+<h4 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="https://img-blog.csdnimg.cn/20210301095908432.png#pic_center" alt="在这里插入图片描述"></h4><p><img src="https://img-blog.csdnimg.cn/202103011006555.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JlYWxfRm9vbF8=,size_16,color_FFFFFF,t_70#pic_center" alt="img"></p>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><h4 id="直接查找"><a href="#直接查找" class="headerlink" title="直接查找"></a>直接查找</h4><p>略</p>
+<h4 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h4><p>略</p>
+<h4 id="动态查找"><a href="#动态查找" class="headerlink" title="动态查找"></a>动态查找</h4><p>动态查找表主要分为二叉排序树和平衡二叉树。<br>二叉排序树： 对于每一个结点，该节点的左子树上的值均小根结点的值，该结点右子树上的值均大于根结点的值。根据这个特性，我们发现，只要对二叉排序树进行一个先序遍历即可实现一个有序的序列了。二叉排序树的时间复杂度和折半查找的时间复杂度是类似的。注意的是二叉排序树并不是唯一的，树的高度可能影响查找的效率，所以我们接下来介绍的平衡二叉树就可以很好的降低树的高度。<br>平衡二叉树：平衡二叉树又称AVL树，它的性质主要是该二叉树的左右子树的深度之差不会超过1，平衡因子指的是该结点的左子树减去该节点的右子树，所以我们可以知道，平衡因子可能为1，0，-1这三个值。</p>
+<h4 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h4><p>构造一个哈希函数进行存储</p>
+<blockquote>
+<p>对于不同的关键字可能得到同一个哈希地址。这种现象叫做冲突。具有相同函数值的关键字对该哈希函数来说称作同义词。然而，我们在构造哈希函数的时候，应该尽可能地减少冲突，但是却不能完全避免。<br>将一组关键字映像到一个有的连续的地址上，并以关键字在地址集中的像作为记录在表中的存储位置，这种表叫做哈希表。这一映像过程叫做哈希造表或者散列。所得的存储位置称做哈希地址或者散列地址</p>
+</blockquote>
+<p><strong>哈希函数的构造方法:</strong><br>1、直接定址法 取关键字或者关键字的某一个线性函数值为哈希地址，即：H（key)=key或者H(key)=akey+b<br>2、数字分析法 假设关键字是以r为基的数，并且哈希表中可能出现的关键字都是事先知道的，则可取关键字的若干数位组成哈希地址。<br>3、平方取中法 取关键字平方后的中间几位为哈希地址。<br>4、折叠法 将关键字分割为位数相同的及部分，然后取这几部分的叠加和作为哈希地址。<br>5、除留余数法 取关键字被某一个不大于哈希表长m的数p出后所得的余数为哈希地址。对于这个数p，可以选择子树或者不包含小于20的质因数的合数。<br>6、随机数法 选择一个随机函数，取关键字的随机函数值为它的哈希地址。</p>
+<p><strong>哈希函数要考虑的因素：</strong><br>1、计算哈希函数所需要的时间<br>2、关键字的长度<br>3、哈希表的大小<br>4、关键字的分布情况<br>5、记录的查找频率</p>
+<p><strong>处理冲突的方法</strong><br>1、开放地址法<br>2、再哈希法<br>3、链地址法<br>4、建立一个公共溢出区</p>
+<p>哈希表的查找过程中需和给定值进行比较的关键字的个数取决于三个因素：哈希函数，处理冲突的方法和哈希表的装填因子。其中，装填因子的定义为：a=表中填入的记录数/哈希表的长度。</p>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p><img src="https://img-blog.csdnimg.cn/20210522134327765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81Njc3MjkwNA==,size_16,color_FFFFFF,t_70" alt="img"></p>
+<h4 id="1-插入排序"><a href="#1-插入排序" class="headerlink" title="1.插入排序"></a>1.插入排序</h4><blockquote>
+<p>思路：<br>  在待排序的元素中，假设前n-1个元素已有序，现将第n个元素插入到前面已经排好的序列中，使得前n个元素有序。按照此法对所有元素进行插入，直到整个序列有序。<br>  但我们并不能确定待排元素中究竟哪一部分是有序的，所以我们一开始只能认为第一个元素是有序的，依次将其后面的元素插入到这个有序序列中来，直到整个序列有序为止。</p>
+</blockquote>
+<p>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">InsertSort</span><span class="params">(<span class="type">int</span>* arr, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; ++i) &#123;</span><br><span class="line">		<span class="comment">//记录有序序列最后一个元素的下标</span></span><br><span class="line">		<span class="type">int</span> end = i;</span><br><span class="line">		<span class="comment">//待插入的元素</span></span><br><span class="line">		<span class="type">int</span> tem = arr[end + <span class="number">1</span>];</span><br><span class="line">		<span class="comment">//单趟排</span></span><br><span class="line">		<span class="keyword">while</span> (end &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="comment">//比插入的数大就向后移</span></span><br><span class="line">			<span class="keyword">if</span> (tem &lt; arr[end]) &#123;</span><br><span class="line">				arr[end + <span class="number">1</span>] = arr[end];</span><br><span class="line">				end--;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//比插入的数小，跳出循环</span></span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//tem放到比插入的数小的数的后面</span></span><br><span class="line">		arr[end  + <span class="number">1</span>] = tem;</span><br><span class="line">        arr[end  + <span class="number">1</span>] = tem;</span><br><span class="line">		<span class="comment">//代码执行到此位置有两种情况:</span></span><br><span class="line">		<span class="comment">//1.待插入元素找到应插入位置（break跳出循环到此）</span></span><br><span class="line">		<span class="comment">//2.待插入元素比当前有序序列中的所有元素都小（while循环结束后到此）</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>时间复杂度：最坏情况下为O(N*N)，此时待排序列为逆序，或者说接近逆序<br>      最好情况下为O(N)，此时待排序列为升序，或者说接近升序。<br>空间复杂度：O(1)</strong></p>
+</blockquote>
+<h4 id="2-希尔排序"><a href="#2-希尔排序" class="headerlink" title="2.希尔排序"></a>2.希尔排序</h4><blockquote>
+<p>步骤：<br>1.先选定一个小于N的整数gap作为第一增量，然后将所有距离为gap的元素分在同一组，并对每一组的元素进行直接插入排序。然后再取一个比第一增量小的整数作为第二增量，重复上述操作…<br>2.当增量的大小减到1时，就相当于整个序列被分到一组，进行一次直接插入排序，排序完成。<br>动图如下：</p>
+</blockquote>
+<blockquote>
+<p>思路：<br>希尔排序，先将待排序列进行预排序，使待排序列接近有序，然后再对该序列进行一次插入排序，此时插入排序的时间复杂度为O(N)，</p>
+</blockquote>
+<p>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">ShellSort</span><span class="params">(<span class="type">int</span>* arr, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> gap = n;</span><br><span class="line">	<span class="keyword">while</span> (gap&gt;<span class="number">1</span>) &#123;</span><br><span class="line">		<span class="comment">//每次对gap折半操作</span></span><br><span class="line">		gap = gap / <span class="number">2</span>;</span><br><span class="line">		<span class="comment">//单趟排序</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - gap; ++i) &#123;</span><br><span class="line">			<span class="type">int</span> end = i;</span><br><span class="line">			<span class="type">int</span> tem = arr[end + gap];</span><br><span class="line">			<span class="keyword">while</span> (end &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (tem &lt; arr[end]) &#123;</span><br><span class="line">					arr[end + gap] = arr[end];</span><br><span class="line">					end -= gap;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			arr[end + gap] = tem;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>时间复杂度平均：O(N^1.3)<br>空间复杂度：O(1)</strong></p>
+</blockquote>
+<h4 id="3-选择排序"><a href="#3-选择排序" class="headerlink" title="3.选择排序"></a>3.选择排序</h4><blockquote>
+<p>思路：<br>每次从待排序列中选出一个最小值，然后放在序列的起始位置，直到全部待排数据排完即可。<br>实际上，我们可以一趟选出两个值，一个最大值一个最小值，然后将其放在序列开头和末尾，这样可以使选择排序的效率快一倍。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span>* a, <span class="type">int</span>* b)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> tem = *a;</span><br><span class="line">	*a = *b;</span><br><span class="line">	*b = tem;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">SelectSort</span><span class="params">(<span class="type">int</span>* arr, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//保存参与单趟排序的第一个数和最后一个数的下标</span></span><br><span class="line">	<span class="type">int</span> begin = <span class="number">0</span>, end = n - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (begin &lt; end) &#123;</span><br><span class="line">		<span class="comment">//保存最大值的下标</span></span><br><span class="line">		<span class="type">int</span> maxi = begin;</span><br><span class="line">		<span class="comment">//保存最小值的下标</span></span><br><span class="line">		<span class="type">int</span> mini = begin;</span><br><span class="line">		<span class="comment">//找出最大值和最小值的下标</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = begin; i &lt;= end; ++i) &#123;</span><br><span class="line">			<span class="keyword">if</span> (arr[i] &lt; arr[mini]) mini = i;</span><br><span class="line">			<span class="keyword">if</span> (arr[i] &gt; arr[maxi]) maxi = i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//最小值放在序列开头</span></span><br><span class="line">		<span class="built_in">swap</span>(&amp;arr[mini], &amp;arr[begin]);</span><br><span class="line">		<span class="comment">//防止最大的数在begin位置被换走</span></span><br><span class="line">		<span class="keyword">if</span> (begin == maxi) maxi = mini;</span><br><span class="line">		<span class="comment">//最大值放在序列结尾</span></span><br><span class="line">		<span class="built_in">swap</span>(&amp;arr[maxi], &amp;arr[end]);</span><br><span class="line">		++begin;</span><br><span class="line">		--end;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>时间复杂度：最坏情况：O(N^2)<br>      最好情况：O(N^2)<br>空间复杂度：O(1)</strong></p>
+</blockquote>
+<h4 id="4-冒泡排序"><a href="#4-冒泡排序" class="headerlink" title="4.冒泡排序"></a>4.冒泡排序</h4><blockquote>
+<p>思路：<br>左边大于右边交换一趟排下来最大的在右边</p>
+</blockquote>
+<p>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="type">int</span>* arr, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> end = n;</span><br><span class="line">	<span class="keyword">while</span> (end) &#123;</span><br><span class="line">		<span class="type">int</span> flag = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; end; ++i) &#123;</span><br><span class="line">			<span class="keyword">if</span> (arr[i - <span class="number">1</span>] &gt; arr[i]) &#123;</span><br><span class="line">				<span class="type">int</span> tem = arr[i];</span><br><span class="line">				arr[i] = arr[i - <span class="number">1</span>];</span><br><span class="line">				arr[i - <span class="number">1</span>] = tem;</span><br><span class="line">				flag = <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (flag == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">		--end;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>时间复杂度：最坏情况：O(N^2)<br>      最好情况：O(N)<br>空间复杂度：O(1)</strong></p>
+</blockquote>
+<h4 id="5-堆排序"><a href="#5-堆排序" class="headerlink" title="5.堆排序"></a>5.堆排序</h4><p>1.堆</p>
+<blockquote>
+<p>大根堆：所有父节点大于等于孩子节点</p>
+<p>小根堆：所有父节点小于等于孩子节点</p>
+</blockquote>
+<p>堆的性质：</p>
+<blockquote>
+<p>• 堆中某个节点的值总是不大于或不小于其父节点的值</p>
+<p>• 堆总是一棵完全二叉树</p>
+</blockquote>
+<p>2.堆的实现</p>
+<blockquote>
+<p>现在我们给出一个数组，逻辑上看做一颗完全二叉树。我们通过从根节点开始的向下调整算法可以把它调整成一个小堆。<br>int a[] = {27,15,19,18,28,34,65,49,25,37};</p>
+<p>2.1堆的向下调整算法(建小堆)<br>向下调整算法-前提：当前树的左右子树必须都是一个小堆<br>向下调整算法的核心思想：选出左右孩子中小的哪一个，跟父亲交换，小的往上浮，大的往下沉，如果要建大堆则相反</p>
+<p>如下图所示为一个向下调整法调小堆</p>
+<p>2.2 堆向下调整算法(建小堆)实现<br>//堆向下调整算法<br>//建小堆</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">AdjustDown</span><span class="params">(<span class="type">int</span>* a, <span class="type">int</span> n, <span class="type">int</span> root)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> parent = root;</span><br><span class="line">	<span class="type">int</span> child = parent * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">	<span class="comment">//孩子超过数组下标结束</span></span><br><span class="line">	<span class="keyword">while</span> (child &lt; n) &#123;</span><br><span class="line">		<span class="comment">//child始终左右孩子中小的那个</span></span><br><span class="line">		<span class="keyword">if</span> (a[child + <span class="number">1</span>] &lt; a[child] &amp;&amp; child + <span class="number">1</span> &lt;n)<span class="comment">//防止没有右孩子</span></span><br><span class="line">		    ++child;</span><br><span class="line">		<span class="comment">//小的往上浮，大的往下浮</span></span><br><span class="line">		<span class="keyword">if</span> (a[child] &lt; a[parent]) &#123;</span><br><span class="line">			<span class="type">int</span> tem = a[parent];</span><br><span class="line">			a[parent] = a[child];</span><br><span class="line">			a[child] = tem;</span><br><span class="line">			parent = child;</span><br><span class="line">			child = parent * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//中途child&gt;parent则已满足小堆，直接break</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>2.3 堆的向上调整算法<br>使用场景：向堆中插入数据，需要使用向上调整算法调整，因为向堆中插入数据是将数据插入到下标为size的位置，此时就不满足小堆(大堆)，因此，需要堆其进行调整，向上调整算法和向下调整算法思路类似，此处以小堆为例，向上调整法只需从插入的节点位置开始和父节点比较，若a[chaild]&lt;a[parent],则交换，若a[chaild]&gt;=a[parent]则说明越界满足小堆，直接break</p>
+<p>2.4 向上调整算法(建小堆)实现<br>//堆的向上调整算法<br>//建小堆</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">AdjustUp</span><span class="params">(HPDataType* a, <span class="type">int</span> child)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> parent = (child - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">while</span> (child &gt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (a[child] &lt; a[parent]) &#123;</span><br><span class="line">			<span class="type">int</span> tem = a[parent];</span><br><span class="line">			a[parent] = a[child];</span><br><span class="line">			a[child] = tem;</span><br><span class="line">			child = parent;</span><br><span class="line">			parent = (child - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2.5 数组建堆算法(建小堆)<br>若左右子树不是小堆——想办法把左右子树处理成小堆<br>可以从倒数第一个非叶子节点的位置开始向下调整</p>
+</blockquote>
+<blockquote>
+<p>2.6 数组建堆算法(建小堆)实现</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n = <span class="built_in">sizeof</span>(a) / <span class="built_in">sizeof</span>(<span class="type">int</span>);</span><br><span class="line">	<span class="comment">//数组建堆算法</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = (n - <span class="number">1</span> - <span class="number">1</span>) / <span class="number">2</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">AdjustDown</span>(arr, n, i);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.7 堆排序(降序)<br>下面我们将上面建好的小堆进行降序排序</p>
+<p>堆排序(降序)的核心思想：因为建小堆可以选出最小的数即根节点，我们将每次建好的小堆的最后一个叶子节点和根节点进行交换，交换后不把最后一个数看作堆里的数据，此时根的左右子树依旧是大堆，然后我们再用向下调整算法选出次小的如此循环直到堆里剩一个数结束</p>
+<p>• 升序建大堆<br>• 降序建小堆</p>
+<p>2.8 堆排序(降序)实现</p>
+<p>//降序</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//降序</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HeapSort</span><span class="params">(<span class="type">int</span>* a, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//建小堆</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = (n - <span class="number">1</span> - <span class="number">1</span>) / <span class="number">2</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">	    <span class="built_in">AdjustDown</span>(a, n, i);</span><br><span class="line">	<span class="type">int</span> end = n - <span class="number">1</span>;</span><br><span class="line">	<span class="comment">//把最小的换到最后一个位置，不把最后一个数看作堆里的</span></span><br><span class="line">	<span class="comment">//每次选出剩下数中最小的</span></span><br><span class="line">	<span class="comment">//从后往前放</span></span><br><span class="line">	<span class="keyword">while</span> (end &gt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="type">int</span> tem = a[end];</span><br><span class="line">		a[end] = a[<span class="number">0</span>];</span><br><span class="line">		a[<span class="number">0</span>] = tem;</span><br><span class="line">		<span class="comment">//选出次小的数</span></span><br><span class="line">		<span class="built_in">AdjustDown</span>(a, end, <span class="number">0</span>);</span><br><span class="line">		--end;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HeapSort</span><span class="params">(<span class="type">int</span>* a, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//建小堆</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = (n - <span class="number">1</span> - <span class="number">1</span>) / <span class="number">2</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">AdjustDown</span>(a, n, i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> end = n - <span class="number">1</span>;</span><br><span class="line">	<span class="comment">//把最小的换到最后一个位置，不把最后一个数看作堆里的</span></span><br><span class="line">	<span class="comment">//每次选出剩下数中最小的</span></span><br><span class="line">	<span class="comment">//从后往前放</span></span><br><span class="line">	<span class="keyword">while</span> (end &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> tem = a[end];</span><br><span class="line">		a[end] = a[<span class="number">0</span>];</span><br><span class="line">		a[<span class="number">0</span>] = tem;</span><br><span class="line">		<span class="comment">//选出次小的数</span></span><br><span class="line">		<span class="built_in">AdjustDown</span>(a, end, <span class="number">0</span>);</span><br><span class="line">		--end;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2.9 建堆的时间复杂度<br>最坏的情况及满二叉树，且每个节点都需要调整</p>
+</blockquote>
+<blockquote>
+<p><strong>由以上推论过程可得建堆的时间复杂度为O(N);<br>向下调整算法的时间复杂度为O(log2N);<br>所以堆排序的时间复杂度为O(N*log2N);</strong></p>
+</blockquote>
+<h4 id="6-快速排序"><a href="#6-快速排序" class="headerlink" title="6.快速排序"></a>6.快速排序</h4><blockquote>
+<p>思路：</p>
+<p>快速排序之所以比较快，是因为与冒泡排序相比，每次的交换时跳跃式的，每次排序的时候设置一个基准点，将小于等于基准点的数全部放到基准点的左边，将大于等于基准点的数全部放到基准点的右边。这样在每次交换的时候就不会像冒泡排序一样每次只能在相邻的数之间进行交换，交换的距离就大的多了。因此总的比较和交换次数就少了，速度自然就提高了。当然在最坏的情况下，仍可能是相邻的两个数进行了交换。</p>
+</blockquote>
+<p>实现快速排序的代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Quick_Sort</span><span class="params">(<span class="type">int</span> *arr, <span class="type">int</span> begin, <span class="type">int</span> end)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(begin &gt; end)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="type">int</span> tmp = arr[begin];</span><br><span class="line">    <span class="type">int</span> i = begin;</span><br><span class="line">    <span class="type">int</span> j = end;</span><br><span class="line">    <span class="keyword">while</span>(i != j)&#123;</span><br><span class="line">        <span class="keyword">while</span>(arr[j] &gt;= tmp &amp;&amp; j &gt; i)</span><br><span class="line">            j--;</span><br><span class="line">        <span class="keyword">while</span>(arr[i] &lt;= tmp &amp;&amp; j &gt; i)</span><br><span class="line">            i++;</span><br><span class="line">        <span class="keyword">if</span>(j &gt; i)&#123;</span><br><span class="line">            <span class="type">int</span> t = arr[i];</span><br><span class="line">            arr[i] = arr[j];</span><br><span class="line">            arr[j] = t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[begin] = arr[i];</span><br><span class="line">    arr[i] = tmp;</span><br><span class="line">    <span class="built_in">Quick_Sort</span>(arr, begin, i<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">Quick_Sort</span>(arr, i+<span class="number">1</span>, end);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>快速排序的最差时间复杂度和冒泡排序是一样的都是O(n^2)，</strong></p>
+<p><strong>它的平均时间复杂度为O ( n log ⁡ 2 n ) 。</strong></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Kinyou
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://leekinyou.github.io/2022/08/31/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构期末复习">https://leekinyou.github.io/2022/08/31/数据结构/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/" rel="tag"># 数据结构基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/08/31/hello-world/" rel="next" title="Hello World">
+                  Hello World <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  
+  <span class="author" itemprop="copyrightHolder">Kinyou</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">19k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">17 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

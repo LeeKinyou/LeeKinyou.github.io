@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leekinyou.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Easy X 图形库学习心得 Written by Lee Kinyou, CS, CQUPT Words written before the text: This markdown document is a little note about Easy X functions that I wrote in my busy schedule. Although it is not very">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EasyX 图形库学习心得">
+<meta property="og:url" content="https://leekinyou.github.io/2022/08/31/Easy%20X%20%E5%9B%BE%E5%BD%A2%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/index.html">
+<meta property="og:site_name" content="KinyouLee的个人博客">
+<meta property="og:description" content="Easy X 图形库学习心得 Written by Lee Kinyou, CS, CQUPT Words written before the text: This markdown document is a little note about Easy X functions that I wrote in my busy schedule. Although it is not very">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-01T02:35:36.256Z">
+<meta property="article:author" content="Kinyou">
+<meta property="article:tag" content="EasyX">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://leekinyou.github.io/2022/08/31/Easy%20X%20%E5%9B%BE%E5%BD%A2%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leekinyou.github.io/2022/08/31/Easy%20X%20%E5%9B%BE%E5%BD%A2%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/","path":"2022/08/31/Easy X 图形库学习心得/","title":"EasyX 图形库学习心得"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>EasyX 图形库学习心得 | KinyouLee的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">KinyouLee的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Enjoy my coding life</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Easy-X-%E5%9B%BE%E5%BD%A2%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97"><span class="nav-number">1.</span> <span class="nav-text">Easy X 图形库学习心得</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E7%BB%98%E5%9B%BE%E4%B8%8E%E6%96%87%E5%AD%97%E8%BE%93%E5%87%BA"><span class="nav-number">1.1.</span> <span class="nav-text">一、基本绘图与文字输出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-initgraph"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.initgraph()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-cleardevice"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.cleardevice()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-setbkmode"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.setbkmode()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.1.4.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-setbkcolor"><span class="nav-number">1.1.5.</span> <span class="nav-text">4.setbkcolor()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-circle-like"><span class="nav-number">1.1.6.</span> <span class="nav-text">5.circle() like</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-setlinecolor"><span class="nav-number">1.1.7.</span> <span class="nav-text">6.setlinecolor()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-setfillcolor"><span class="nav-number">1.1.8.</span> <span class="nav-text">7.setfillcolor()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-setlinestyle"><span class="nav-number">1.1.9.</span> <span class="nav-text">8.setlinestyle()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-outtextxy"><span class="nav-number">1.1.10.</span> <span class="nav-text">*9.outtextxy()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-settextstyle"><span class="nav-number">1.1.11.</span> <span class="nav-text">10.settextstyle()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-closegraph"><span class="nav-number">1.1.12.</span> <span class="nav-text">11.closegraph()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9B%BE%E7%89%87%E8%BE%93%E5%87%BA"><span class="nav-number">1.2.</span> <span class="nav-text">二、图片输出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-IMAGE"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.IMAGE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-loadimage"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.loadimage()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-putimage"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.putimage()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%BC%A0%E6%A0%87%E8%AF%BB%E5%85%A5"><span class="nav-number">1.3.</span> <span class="nav-text">三、鼠标读入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-ExMessage"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. ExMessage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-PeekMessage"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.PeekMessage()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%94%AE%E7%9B%98%E8%AF%BB%E5%85%A5"><span class="nav-number">1.4.</span> <span class="nav-text">四、键盘读入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-include-lt-conio-h-gt"><span class="nav-number">1.5.</span> <span class="nav-text">1.#include&lt;conio.h&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-getch"><span class="nav-number">1.6.</span> <span class="nav-text">2._getch()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E9%9F%B3%E4%B9%90%E8%AF%BB%E5%85%A5%E8%AF%BB%E5%87%BA"><span class="nav-number">1.7.</span> <span class="nav-text">五、音乐读入读出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-include-lt-mmsystem-h-gt"><span class="nav-number">1.8.</span> <span class="nav-text">1.#include&lt;mmsystem.h&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-pragma-comment-lib-%E2%80%9Dwinmm-lib%E2%80%9D"><span class="nav-number">1.9.</span> <span class="nav-text">2.#pragma comment(lib,”winmm.lib”)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-mciSendString"><span class="nav-number">1.9.1.</span> <span class="nav-text">3.mciSendString()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%BC%B9%E7%AA%97"><span class="nav-number">1.10.</span> <span class="nav-text">六、弹窗</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-HWND"><span class="nav-number">1.10.1.</span> <span class="nav-text">1.HWND</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-SetWindowText"><span class="nav-number">1.10.2.</span> <span class="nav-text">2.SetWindowText()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-MessageBox"><span class="nav-number">1.10.3.</span> <span class="nav-text">3.MessageBox()</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kinyou"
+      src="/images/head.png">
+  <p class="site-author-name" itemprop="name">Kinyou</p>
+  <div class="site-description" itemprop="description">a university student majoring in CS, CQUPT</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LeeKinyou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LeeKinyou" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1412901165@qq.com" title="E-Mail → mailto:1412901165@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+
+      <!--网易云音乐-->
+      <div id="music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1301884692&auto=0&height=66">
+        </iframe>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部" class="back-to-top motion-element" style="background-color:rgba(255,0,0,0)">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leekinyou.github.io/2022/08/31/Easy%20X%20%E5%9B%BE%E5%BD%A2%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="Kinyou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KinyouLee的个人博客">
+      <meta itemprop="description" content="a university student majoring in CS, CQUPT">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="EasyX 图形库学习心得 | KinyouLee的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          EasyX 图形库学习心得
+        </h1>
+
+        <div class="post-meta-container">
+          
+
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-31 00:00:00" itemprop="dateCreated datePublished" datetime="2022-08-31T00:00:00+08:00">2022-08-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-01 10:35:36" itemprop="dateModified" datetime="2022-09-01T10:35:36+08:00">2022-09-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%9D%82%E9%A1%B9/" itemprop="url" rel="index"><span itemprop="name">杂项</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="Easy-X-图形库学习心得"><a href="#Easy-X-图形库学习心得" class="headerlink" title="Easy X 图形库学习心得"></a>Easy X 图形库学习心得</h2><blockquote>
+<p>Written by Lee Kinyou, CS, CQUPT</p>
+<p>Words written before the text:</p>
+<p><em>This markdown document is a little note about Easy X functions that I wrote in my busy schedule. Although it is not very comprehensive, it basically includes commonly used functions. QAQ</em></p>
+<p><em>Monday, June 20, 2022</em></p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="一、基本绘图与文字输出"><a href="#一、基本绘图与文字输出" class="headerlink" title="一、基本绘图与文字输出"></a>一、基本绘图与文字输出</h3><h4 id="1-initgraph"><a href="#1-initgraph" class="headerlink" title="1.initgraph()"></a>1.initgraph()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">initgraph</span>(<span class="type">int</span> width, <span class="type">int</span> height, <span class="type">int</span> flag = <span class="number">0</span>);</span><br><span class="line"><span class="comment">//绘制宽width，高height的窗口</span></span><br><span class="line"><span class="built_in">initgraph</span>(<span class="number">1024</span>, <span class="number">720</span>);<span class="comment">//只打开一个1024*720的绘图窗口</span></span><br><span class="line"><span class="built_in">initgraph</span>(<span class="number">1024</span>, <span class="number">720</span>, EW_SHOWCONSOLE);<span class="comment">//同时打开绘图窗口和控制台</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-cleardevice"><a href="#2-cleardevice" class="headerlink" title="2.cleardevice()"></a>2.cleardevice()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cleardevice</span>();</span><br><span class="line"><span class="comment">//清空当前绘图窗口</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-setbkmode"><a href="#3-setbkmode" class="headerlink" title="3.setbkmode()"></a>3.setbkmode()</h4> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setbkmode</span>(<span class="type">int</span> mode);</span><br><span class="line"><span class="comment">//调整绘图框背景模式</span></span><br><span class="line"><span class="built_in">setbkmode</span>(TRANSPARENT);<span class="comment">//将文本的背景调为透明，outtextxy()函数输出后文字背景会透明</span></span><br></pre></td></tr></table></figure>
+
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="4-setbkcolor"><a href="#4-setbkcolor" class="headerlink" title="4.setbkcolor()"></a>4.setbkcolor()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setbkcolor</span>(COLORREF color);</span><br><span class="line"><span class="comment">//设置背景颜色，支持RGB(int RED, int GREEN, int BLUE) 每个颜色调色范围为0~255</span></span><br><span class="line"><span class="comment">//同时支持一些预设好的颜色如 RED、GREEN、BLUE、BLACK、WHITE、BLOWN等等</span></span><br><span class="line"><span class="built_in">setbkcolor</span>(RED);</span><br><span class="line"><span class="built_in">setbkcolor</span>(<span class="built_in">RGB</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>));</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-circle-like"><a href="#5-circle-like" class="headerlink" title="5.circle() like"></a>5.circle() like</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">circle</span>(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> radius);<span class="comment">//在坐标为(x,y)处建立一个半径为radius的空心圆</span></span><br><span class="line"><span class="built_in">clearcircle</span>(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> radius);<span class="comment">//在坐标为(x,y)处删除一个半径为radius的空心圆</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">fillcircle</span>(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> radius);<span class="comment">//实心圆</span></span><br><span class="line"><span class="built_in">solidcircle</span>(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> radius);<span class="comment">//有其他颜色边线包裹的实心圆</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">fillrectangle</span>(<span class="type">int</span> left, <span class="type">int</span> top, <span class="type">int</span> right, <span class="type">int</span> bottom);<span class="comment">//确定矩阵的左上角和右下角，绘制矩阵</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//其他基本图形的绘制，请自行探索。QAQ</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="6-setlinecolor"><a href="#6-setlinecolor" class="headerlink" title="6.setlinecolor()"></a>6.setlinecolor()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setlinecolor</span>(COLORREF color);<span class="comment">//设置线条颜色</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">setlinecolor</span>(GREEN);</span><br><span class="line"><span class="built_in">setlinecolor</span>(<span class="built_in">RGB</span>(<span class="number">10</span>, <span class="number">1</span>, <span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="7-setfillcolor"><a href="#7-setfillcolor" class="headerlink" title="7.setfillcolor()"></a>7.setfillcolor()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setfillcolor</span>(COLORREF color); <span class="comment">//设置基本图形填充颜色</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">setfillcolor</span>(GREEN);</span><br><span class="line"><span class="built_in">setfillcolor</span>(<span class="built_in">RGB</span>(<span class="number">10</span>, <span class="number">1</span>, <span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="8-setlinestyle"><a href="#8-setlinestyle" class="headerlink" title="8.setlinestyle()"></a>8.setlinestyle()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setlinestyle</span>(PS_SOLID, width); <span class="comment">//设置线条的格式为PS_SOLID和宽度为width</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="9-outtextxy"><a href="#9-outtextxy" class="headerlink" title="*9.outtextxy()"></a>*9.outtextxy()</h4><p>//（必须要看见啊QAQ）<strong>注: 所有成员必须修改字符集</strong></p>
+<blockquote>
+<p>路径为:</p>
+<p>项目 -&gt;  属性 -&gt; 高级 -&gt;在字符集一栏   将   用Unicode 字符集   改为   <strong>使用多字节字符集</strong></p>
+<p><strong>不修改会导致所有easy x 的库函数输出不了汉字</strong></p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">outtextxy</span>(<span class="type">int</span> x, <span class="type">int</span> y, TCHAR c);</span><br><span class="line"><span class="comment">//在(x,y)处绘制内容为c的文本</span></span><br><span class="line"><span class="built_in">outtextxy</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="string">&quot;你寄吧谁啊？&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//将文本居中放在绘制的矩形框的方法:</span></span><br><span class="line">	<span class="built_in">setbkmode</span>(TRANSPARENT);<span class="comment">//使输出的文字取消背景</span></span><br><span class="line">	<span class="built_in">setfillcolor</span>(BROWN);</span><br><span class="line">	<span class="built_in">settextstyle</span>(<span class="number">20</span>, <span class="number">10</span>, <span class="string">&quot;宋体&quot;</span>);</span><br><span class="line">	<span class="built_in">fillroundrect</span>(x, y, x + w, y + h, <span class="number">10</span>, <span class="number">10</span>);<span class="comment">//输出一个矩阵</span></span><br><span class="line">	<span class="comment">//文字居中处理</span></span><br><span class="line">	<span class="type">int</span> tx = x + (w - <span class="built_in">textwidth</span>(TEXT)) / <span class="number">2</span>;</span><br><span class="line">	<span class="type">int</span> ty = y + (h - <span class="built_in">textheight</span>(TEXT)) / <span class="number">2</span>;</span><br><span class="line">	<span class="built_in">outtextxy</span>(tx, ty, TEXT);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="10-settextstyle"><a href="#10-settextstyle" class="headerlink" title="10.settextstyle()"></a>10.settextstyle()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">settextstyle</span>(<span class="type">int</span> width, <span class="type">int</span> height, TCHAR mode);</span><br><span class="line"><span class="comment">//将文本文字的宽设定为width，高设定为height，字体为mode</span></span><br><span class="line"><span class="built_in">settextstyle</span>(<span class="number">20</span>, <span class="number">20</span>, <span class="string">&quot;华文行楷&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="11-closegraph"><a href="#11-closegraph" class="headerlink" title="11.closegraph()"></a>11.closegraph()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">closegraph</span>()<span class="comment">//关闭绘图窗口</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="二、图片输出"><a href="#二、图片输出" class="headerlink" title="二、图片输出"></a>二、图片输出</h3><h4 id="1-IMAGE"><a href="#1-IMAGE" class="headerlink" title="1.IMAGE"></a>1.IMAGE</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IMAGE img;</span><br><span class="line"><span class="comment">//创建一个类型为图形的对象</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-loadimage"><a href="#2-loadimage" class="headerlink" title="2.loadimage()"></a>2.loadimage()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">loadimage</span>(IMAGE *pDstImg, LPCTSTR pImgFile, <span class="type">int</span> nWidth = <span class="number">0</span>, <span class="type">int</span> nHeight = <span class="number">0</span>, <span class="type">bool</span> bResize = <span class="literal">false</span>);</span><br><span class="line"><span class="comment">// 从文件中加载图片 (bmp/gif/jpg/png/tif/emf/wmf/ico)</span></span><br><span class="line"><span class="comment">//  ./代表从当前文件夹读取文件， ../代表从上一文件夹读取文件</span></span><br><span class="line"><span class="comment">//绝对路径：C:\\Users\\lee\\source\\repos\\EasyX Learning\\DingzhenFace.png</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">loadimage</span>(&amp;img, <span class="string">&quot;./DingzhenFace.png&quot;</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-putimage"><a href="#3-putimage" class="headerlink" title="3.putimage()"></a>3.putimage()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">putimage</span>(<span class="type">int</span> dstX, <span class="type">int</span> dstY, <span class="type">const</span> IMAGE *pSrcImg, DWORD dwRop = SRCCOPY);</span><br><span class="line"><span class="built_in">putimage</span>(<span class="type">int</span> dstX, <span class="type">int</span> dstY, <span class="type">int</span> dstWidth, <span class="type">int</span> dstHeight, <span class="type">const</span> IMAGE *pSrcImg, <span class="type">int</span> srcX, <span class="type">int</span> srcY, DWORD dwRop = SRCCOPY);</span><br><span class="line"><span class="comment">//打印加载好的图片</span></span><br><span class="line"><span class="built_in">putimage</span>(<span class="number">50</span>, <span class="number">50</span>, &amp;img);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="三、鼠标读入"><a href="#三、鼠标读入" class="headerlink" title="三、鼠标读入"></a>三、鼠标读入</h3><h4 id="1-ExMessage"><a href="#1-ExMessage" class="headerlink" title="1. ExMessage"></a>1. ExMessage</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ExMessage msg;<span class="comment">//定义一个消息变量</span></span><br><span class="line">msg=<span class="built_in">getmessage</span>(EM_MOUSE);</span><br><span class="line"><span class="comment">//获取鼠标消息</span></span><br><span class="line"><span class="comment">//但实际上不止有EM_MOUSE,还有其他的消息类型</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-PeekMessage"><a href="#2-PeekMessage" class="headerlink" title="2.PeekMessage()"></a>2.PeekMessage()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PeekMessage</span>(LPMSG lpMsg, HWND hWnd, UINT wMsgFilterMin, UINT wMsgFilterMax, UINT wRemoveMsg);</span><br><span class="line"><span class="comment">//返回值为bool</span></span><br><span class="line"><span class="comment">//使用方法如下</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">peekmessage</span>(&amp;msg, EM_MOUSE)) &#123;</span><br><span class="line">	<span class="keyword">switch</span> (msg.message)</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">case</span> WM_LBUTTONDOWN:<span class="comment">//WM_LBUTTONDOWN 为左键</span></span><br><span class="line">		<span class="keyword">if</span> (msg.x &gt;= <span class="number">50</span> &amp;&amp; msg.x &lt;= <span class="number">200</span> &amp;&amp; msg.y &gt;= <span class="number">50</span> &amp;&amp; msg.y &lt;= <span class="number">100</span>) &#123;</span><br><span class="line">			cout &lt;&lt; <span class="string">&quot;我是按钮，我被左键点击了！\n坐标为：&quot;</span> &lt;&lt; msg.x &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; msg.y &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> WM_RBUTTONDOWN:<span class="comment">//WM_LBUTTONDOWN 为右键</span></span><br><span class="line">		<span class="keyword">if</span> (msg.x &gt;= <span class="number">50</span> &amp;&amp; msg.x &lt;= <span class="number">200</span> &amp;&amp; msg.y &gt;= <span class="number">50</span> &amp;&amp; msg.y &lt;= <span class="number">100</span>) &#123;</span><br><span class="line">			cout &lt;&lt; <span class="string">&quot;我是按钮，我被右键点击了！\n坐标为：&quot;</span> &lt;&lt; msg.x &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; msg.y &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="四、键盘读入"><a href="#四、键盘读入" class="headerlink" title="四、键盘读入"></a>四、键盘读入</h3><h3 id="1-include-lt-conio-h-gt"><a href="#1-include-lt-conio-h-gt" class="headerlink" title="1.#include&lt;conio.h&gt;"></a>1.#include&lt;conio.h&gt;</h3><blockquote>
+<p>包含 _getch()函数</p>
+</blockquote>
+<h3 id="2-getch"><a href="#2-getch" class="headerlink" title="2._getch()"></a>2._getch()</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用法如下：</span></span><br><span class="line"><span class="keyword">while</span> (TRUE) &#123;    </span><br><span class="line">    <span class="type">char</span> key = _getch();</span><br><span class="line">	<span class="keyword">switch</span> (key)</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;w&#x27;</span>:</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;W&#x27;</span>:</span><br><span class="line">		pos_y -= Movingdistance;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;当前输入的键为：上键&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;s&#x27;</span>:</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;S&#x27;</span>:</span><br><span class="line">		pos_y += Movingdistance;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;当前输入的键为：下键&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;a&#x27;</span>:</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">		pos_x -= Movingdistance;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;当前输入的键为：左键&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;d&#x27;</span>:</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;D&#x27;</span>:</span><br><span class="line">		pos_x += Movingdistance;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;当前输入的键为：右键&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;k&#x27;</span>:</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;K&#x27;</span>:</span><br><span class="line">		pos_x += LongMovingdistance;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="五、音乐读入读出"><a href="#五、音乐读入读出" class="headerlink" title="五、音乐读入读出"></a>五、音乐读入读出</h3><h3 id="1-include-lt-mmsystem-h-gt"><a href="#1-include-lt-mmsystem-h-gt" class="headerlink" title="1.#include&lt;mmsystem.h&gt;"></a>1.#include&lt;mmsystem.h&gt;</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;mmsystem.h&gt; //包含多媒体设备接口头文件</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-pragma-comment-lib-”winmm-lib”"><a href="#2-pragma-comment-lib-”winmm-lib”" class="headerlink" title="2.#pragma comment(lib,”winmm.lib”)"></a>2.#pragma comment(lib,”winmm.lib”)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> comment(lib,<span class="string">&quot;winmm.lib&quot;</span>) </span></span><br><span class="line"><span class="comment">//加载静态库 支持MPEG,AVI,WAV,MP3格式</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-mciSendString"><a href="#3-mciSendString" class="headerlink" title="3.mciSendString()"></a>3.mciSendString()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//打开音乐 播放音乐 alias 取别名 repeat 重复播放</span></span><br><span class="line"><span class="built_in">mciSendString</span>(<span class="string">&quot;open ./孤勇者.mp3&quot;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">mciSendString</span>(<span class="string">&quot;play ./孤勇者.mp3&quot;</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="comment">//mciSendString(&quot;open ./孤勇者.mp3 alias BGM&quot;, 0, 0, 0);</span></span><br><span class="line"><span class="comment">//mciSendString(&quot;play BGM repeat&quot;, 0, 0, 0);</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="六、弹窗"><a href="#六、弹窗" class="headerlink" title="六、弹窗"></a>六、弹窗</h3><h4 id="1-HWND"><a href="#1-HWND" class="headerlink" title="1.HWND"></a>1.HWND</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HWND hnd;</span><br><span class="line">hnd = <span class="built_in">GetHWnd</span>();</span><br><span class="line"><span class="comment">//设置窗口标题</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-SetWindowText"><a href="#2-SetWindowText" class="headerlink" title="2.SetWindowText()"></a>2.SetWindowText()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">SetWindowText</span>(hnd, TEXT);</span><br><span class="line"><span class="comment">//设置窗口为名称为TEXT</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-MessageBox"><a href="#3-MessageBox" class="headerlink" title="3.MessageBox()"></a>3.MessageBox()</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">MessageBox</span>(hnd, <span class="string">&quot;你寄吧谁啊？&quot;</span>, <span class="string">&quot;提示&quot;</span>, MB_OKCANCEL);</span><br><span class="line"><span class="comment">//弹出的窗口的标题为“提示”，内容为“你寄吧谁啊？”，有确定和取消键</span></span><br><span class="line"><span class="comment">//MessageBox()的返回值为bool</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//例如：</span></span><br><span class="line">    HWND hnd = <span class="built_in">GetHWnd</span>();</span><br><span class="line">	<span class="comment">//设置窗口标题</span></span><br><span class="line">	<span class="built_in">SetWindowText</span>(hnd, <span class="string">&quot;鼠鼠我呀，头发要掉光了。&quot;</span>);</span><br><span class="line">	<span class="comment">//弹出窗口，提示用户操作</span></span><br><span class="line">	<span class="type">int</span> isok = <span class="built_in">MessageBox</span>(hnd, <span class="string">&quot;你寄吧谁啊？&quot;</span>, <span class="string">&quot;提示&quot;</span>, MB_OKCANCEL);</span><br><span class="line">	<span class="built_in">settextstyle</span>(<span class="number">500</span>, <span class="number">100</span>, <span class="string">&quot;华文行楷&quot;</span>);</span><br><span class="line">	<span class="built_in">settextcolor</span>(<span class="built_in">RGB</span>(<span class="number">100</span>, <span class="number">120</span>, <span class="number">130</span>));</span><br><span class="line">	<span class="keyword">if</span> (isok == IDOK) &#123;</span><br><span class="line">		<span class="built_in">outtextxy</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="string">&quot;正确的&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (isok == IDCANCEL) &#123;</span><br><span class="line">		<span class="built_in">outtextxy</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="string">&quot;sabbly&quot;</span>);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Kinyou
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://leekinyou.github.io/2022/08/31/Easy%20X%20%E5%9B%BE%E5%BD%A2%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/" title="EasyX 图形库学习心得">https://leekinyou.github.io/2022/08/31/Easy X 图形库学习心得/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/EasyX/" rel="tag"># EasyX</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/31/hello-world/" rel="prev" title="Hello World">
+                  <i class="fa fa-chevron-left"></i> Hello World
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/09/01/%E7%AE%97%E6%B3%95%E6%8F%90%E9%AB%98%E6%B8%85%E5%8D%95/" rel="next" title="算法提高清单">
+                  算法提高清单 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  
+  <span class="author" itemprop="copyrightHolder">Kinyou</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">19k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">17 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
