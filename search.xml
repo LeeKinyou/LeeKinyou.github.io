@@ -213,6 +213,12 @@
 </tbody></table>
 <h2 id="三-上标与下标"><a href="#三-上标与下标" class="headerlink" title="三.上标与下标"></a>三.上标与下标</h2><p>上标和下标分别使用<code>^</code> 与<code>_</code> ，例如<code>$x_i^2$</code>表示的是：$ x_i^2$。</p>
 <p>上标和下标是一个式子需要用<code>&#123;&#125;</code>扩起来，如<code>$\int_&#123;2x&#125; ^&#123;\sqrt 2e&#125;&#125;xdx$</code>：$\int_{2x} ^{\sqrt {2e}}xdx$</p>
+<p>单字符<code>$\hat x$</code>： $\hat x$</p>
+<p>多字符<code>$\widehat&#123;xy&#125;$</code>：$\widehat{xy}$</p>
+<p>上划线<code>$\overline&#123;xy&#125;$</code>：$\overline{xy}$</p>
+<p>矢量<code>$\vec x$</code>：$\vec x$</p>
+<p>向量<code>$\overrightarrow&#123;xy&#125;$</code>：$\overrightarrow{xy}$</p>
+<p>点<code>$\dot x$</code>：$\dot x$</p>
 <h2 id="四-括号"><a href="#四-括号" class="headerlink" title="四.括号"></a>四.括号</h2><h3 id="1-小括号与方括号"><a href="#1-小括号与方括号" class="headerlink" title="1.小括号与方括号"></a>1.小括号与方括号</h3><p>无限制，直接使用即可。</p>
 <h3 id="2-大括号"><a href="#2-大括号" class="headerlink" title="2.大括号"></a>2.大括号</h3><p>由于大括号<code>&#123;&#125;</code> 被用于分组，因此需要使用<code>\&#123;</code>和<code>\&#125;</code>表示大括号，也可以使用<code>\lbrace</code> 和<code>\rbrace</code>来表示。如<code>$\&#123;a,b,c\&#125;$</code> 或<code>$\lbrace a,b,c\rbrace $</code> 表示：${a,b,c}$</p>
 <h3 id="3-尖括号"><a href="#3-尖括号" class="headerlink" title="3.尖括号"></a>3.尖括号</h3><p>使用<code>\langle</code> 和<code>\rangle</code> 表示左尖括号和右尖括号。如<code>$\langle x \rangle$</code> 表示：$\langle x \rangle$</p>
@@ -226,6 +232,14 @@
 <p><code>$\iint_0^x$</code>：$\iint_0^x$</p>
 <p><code>$\iiint_0^x$</code>：$\iiint_0^x$</p>
 <h3 id="3-连乘"><a href="#3-连乘" class="headerlink" title="3.连乘"></a>3.连乘</h3><p><code>$\prod_&#123;i=1&#125;^&#123;n&#125; i$</code>：$\prod_{i=1}^{n} i$</p>
+<h3 id="4-一些不常用的"><a href="#4-一些不常用的" class="headerlink" title="4.一些不常用的"></a>4.一些不常用的</h3><p><code>$\bigcup$</code>：$\bigcup$</p>
+<p><code>$\bigcap$</code>：$\bigcap$</p>
+<p><code>$arg\,\max_&#123;c_k&#125;$</code>：$arg,\max_{c_k}$</p>
+<p><code>$arg\,\min_&#123;c_k&#125;$</code>：$arg,\min_{c_k}$</p>
+<p><code>$\mathop &#123;argmin&#125;_&#123;c_k&#125;$</code>：$\mathop {argmin}_{c_k}$</p>
+<p><code>$\mathop &#123;argmax&#125;_&#123;c_k&#125;$</code>：$\mathop {argmax}_{c_k}$</p>
+<p><code>$\max_&#123;c_k&#125;$</code>：$\max_{c_k}$</p>
+<p><code>$\min_&#123;c_k&#125;$</code>：$\min_{c_k}$</p>
 <h2 id="六-分式与根式"><a href="#六-分式与根式" class="headerlink" title="六.分式与根式"></a>六.分式与根式</h2><h3 id="1-分式"><a href="#1-分式" class="headerlink" title="1.分式"></a>1.分式</h3><ul>
 <li>方法一：<code>\frac &#123;a+b+1&#125;&#123;c+d+2&#125;</code>：$\frac {a+b+1}{c+d+2}$</li>
 <li>方法二：<code>$&#123;a+b+1 \over c+d+2&#125;$</code>：${a+b+1 \over c+d+2}$</li>
