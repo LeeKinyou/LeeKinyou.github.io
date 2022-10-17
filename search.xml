@@ -14,6 +14,61 @@
       </tags>
   </entry>
   <entry>
+    <title>Kinyou的git的学习</title>
+    <url>/2022/10/17/git%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h2 id="Kinyou的git的学习"><a href="#Kinyou的git的学习" class="headerlink" title="Kinyou的git的学习"></a>Kinyou的git的学习</h2><h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><ul>
+<li><p>集中式版本控制 SVN</p>
+<p>将所有的版本数据都保存在中央服务器上，开发者同步更新或上传自己的修改</p>
+</li>
+<li><p>分布式版本控制 git</p>
+<p>所有的版本信息仓库都同步到每个用户</p>
+<p><u>本次学习重点</u></p>
+<span id="more"></span></li>
+</ul>
+<h3 id="常用命令行"><a href="#常用命令行" class="headerlink" title="常用命令行"></a>常用命令行</h3><ol>
+<li>cd：改变目录</li>
+<li>cd..：退回上一个目录</li>
+<li>pwd：显示当前所在的目录路径</li>
+<li>clear：清屏</li>
+<li>ls（ll）：列出当前目录的所有文件</li>
+<li>rm：删除文件</li>
+<li>mkdir：创建目录</li>
+<li>rm -r：删除当前文件夹</li>
+<li>rm -r src：删除src目录</li>
+<li>mv srcA srcB：把srcA移动到srcB</li>
+<li>reset：重新初始化终端</li>
+<li>history：查看历史</li>
+<li>help：帮助</li>
+<li>exit：退出</li>
+</ol>
+<h3 id="git基本理论"><a href="#git基本理论" class="headerlink" title="git基本理论"></a>git基本理论</h3><p><img src="https://img-blog.csdn.net/20140417104150109" alt="img"></p>
+<p><img src="https://img-blog.csdn.net/20140417113336421" alt="img"></p>
+<h3 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h3><p>基本操作</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查看指定文件状态</span></span><br><span class="line">git status [filename]</span><br><span class="line"></span><br><span class="line"><span class="comment">//查看所有文件状态</span></span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"><span class="comment">//将工作目录中所有的文件提交至暂存区</span></span><br><span class="line">git add .</span><br><span class="line">    </span><br><span class="line"><span class="comment">//将暂存区的内容提交至本地仓库 -m 是message后面跟的是提交信息</span></span><br><span class="line">git commit -m <span class="string">&quot;消息内容&quot;</span></span><br><span class="line">   </span><br><span class="line"><span class="comment">//将本地仓库的内容提交至远端</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>忽略文件</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">一些例子</span><br><span class="line"></span><br><span class="line">*.txt <span class="comment">//忽略所有以.txt</span></span><br><span class="line">!lib.txt <span class="comment">//不忽略lib.txt</span></span><br><span class="line">/tmep <span class="comment">//向上忽略</span></span><br><span class="line">bulid/ <span class="comment">//向下忽略    </span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前缀和与差分</title>
+    <url>/2022/09/14/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>基础算法, 前缀和, 差分</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>markdown常用公式</title>
     <url>/2022/09/04/markdown%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="markdown常用公式"><a href="#markdown常用公式" class="headerlink" title="markdown常用公式"></a>markdown常用公式</h1><blockquote>
