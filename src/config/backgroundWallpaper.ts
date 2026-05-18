@@ -70,17 +70,23 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 是否允许用户通过控制面板切换横幅标题显示
 			switchable: true,
 			// 主页横幅主标题
-			title: "Lovely firefly!",
+			title: "Code & Grow",
 			// 主页横幅主标题字体大小
 			titleSize: "3.8rem",
 			// 主页横幅副标题
 			subtitle: [
-				"In Reddened Chrysalis, I Once Rest",
-				"From Shattered Sky, I Free Fall",
-				"Amidst Silenced Stars, I Deep Sleep",
-				"Upon Lighted Fyrefly, I Soon Gaze",
-				"From Undreamt Night, I Thence Shine",
-				"In Finalized Morrow, I Full Bloom",
+				"在代码的世界里，每一行都是成长的足迹",
+				"算法如诗，数据结构如画",
+				"从 Hello World 到无限可能",
+				"用键盘敲击出未来的模样",
+				"Bug 是暂时的，热爱是永恒的",
+				"今天写的代码，是明天成功的基石",
+				"代码不止于功能，更在于热爱",
+				"在算法的海洋里，寻找最优解",
+				"每一段代码，都是一次自我超越",
+				"从 CQUPT 出发，走向更远的地方",
+				"用技术改变世界，用文字记录成长",
+				"编程是一场没有终点的旅行",
 			],
 			// 主页横幅副标题字体大小
 			subtitleSize: "1.5rem",
