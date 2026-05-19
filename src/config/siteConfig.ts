@@ -16,8 +16,7 @@ export const siteConfig: SiteConfig = {
 	site_url: "https://LeeKinyou.github.io",
 
 	// 站点描述
-	description:
-		"a university student majoring in CS, CQUPT",
+	description: "a university student majoring in CS, CQUPT",
 
 	// 站点关键词
 	keywords: [
