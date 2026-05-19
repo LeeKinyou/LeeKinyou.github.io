@@ -1,6 +1,6 @@
 ---
 title: 驾驭工程（Harness Engineering）：AI Agent 时代的软件工程新范式
-published: 2026-05-18
+published: 2026-05-19
 description: 深入理解驾驭工程的概念、核心原理、应用场景、最新发展趋势与实践案例，探索 AI 时代软件工程的第三次范式转移
 tags: [驾驭工程, AI Agent, 软件工程, 人工智能, 大语言模型]
 category: 人工智能
